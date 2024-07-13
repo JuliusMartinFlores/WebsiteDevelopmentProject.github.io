@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Pre-registration Form</title>
+
+<script>
+    async function handleSubmit(event) {
+    event.preventDefault();
+
+    const form= event.target;
+    const formData= new FormData(form);
+
+    const params = new URLSearchParams();
+    for (const pair of formData.entries()) {
+        params.append(pair[0], pair[1])
+    }
+
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: params
+        });
+
+    const result = await response.json();
+    if (result.result === 'success') {
+        alert(result.message);
+    } else {
+        alert(result.message);
+    }
+}
+    catch (error) {
+        alert('Submission failed: ' + error.toString());
+    
+    }
+}
+</script>
+<link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+
+<form  id="preRegistrationform" action="https://script.google.com/macros/s/AKfycbyTH4UAXMO0bTirku2dDcow3vh_SOl09paHToMnZD5kLxMYOIudgYZ52bg1uckBSQoVNw/exec" method="post" onsubmit="handleSubmit(event)">
+<a href="index.html"><img src="img/home.png" width="40" height="40"></a>
+    <div class="container"> 
+        <div class="title">Pre-Registration Form &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+        
+        <div class="input">
+            <div class="input-box">
+            <label>Semester:</label>
+                <input type="text" name="Semester" id="sem" required>                
+                <br><br>
+            </div>
+
+            <div class="input-box">
+            <label>School Year:</label> 
+                <input type="text" name="School Year" id="SY" placeholder="Ex: 2024 - 2025" required>
+                <br><br>
+            </div>
+            
+            <div class="input-box">
+            <label>Summer:</label> 
+                <input type="text" name="Summer" id="summer" placeholder="Ex: 2024" required>
+                <br><br>
+            </div>
+
+            <div class="input-box">
+            <span class="details">NAME: Mr./Ms.</span>
+            <input type="text" id="name" name="Name" placeholder="Surname, First Name, Middle Name" required>
+            <br><br>
+            </div>
+
+            <div class="input-box">
+            <span class="details">Date of Registration:</span>
+            <input type="date" name="Date of Registration" id="date" required>
+            <br><br>
+            </div>
+
+            <div class="input-box">
+            <span class="details">Student No.:</span>
+            <input type="text" name="Student Number" placeholder="XXXX-XXXX-MN-0" id="student" required>
+            <br><br>
+            </div>
+        
+            <div class="input-box">
+            <span class="details">Program:</span>
+            <input type="text" name="Program" placeholder="ex. BS Computer Science" id="program" required>
+            <br><br>
+            </div>
+        
+            <div class="input-box">
+            <span class="details">Contact Nos.:</span>
+            <input type="tel" name="Contact Number" placeholder="09XXXXXXXXX" id="contact" maxlength="11" required>
+            <br><br>
+            </div>
+        
+            <div class="input-box">
+                <span class="dropdown"> Status:</span>
+                <select name="Status" id="check">
+                    <option value="New Student">New Student</option>
+                    <option value="Old Student">Old Student</option>
+                    <option value="Returning">Returning</option>
+                    <option value="Cross-enrollee">Cross-enrollee</option>
+                </select>
+                <br><br>
+            </div>
+        
+            <div class="table">
+            <table>
+            
+                <tr>
+                        <th>Subject Code&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <th>Subject Description&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <th>Section Code&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <th>Day/s&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <th>Time&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <th>Room</th>
+                </tr>
+            
+                <tr>
+                        <td><input type="text" Name="Subject Code" id="first" required></td>
+                        <td><input type="text" Name="Subject Description" id="first" required></td>
+                        <td><input type="text" Name="Section Code" id="first" required></td>
+                        <td><input type="text" Name="Day/s" id="first" required></td>
+                        <td><input type="text" Name="Time" id="first" required></td>
+                        <td><input type="text" Name="Room" id="first" required></td>
+                </tr>
+            
+                <tr>
+                    <td><input type="text" Name="Second Subject Code" id="second"></td>
+                    <td><input type="text" Name="Second Subject Description" id="second"></td>
+                    <td><input type="text" Name="Second Section Code" id="second"></td>
+                    <td><input type="text" Name="Second Day/s" id="second"></td>
+                    <td><input type="text" Name="Second Time" id="second"></td>
+                    <td><input type="text" Name="Second Room" id="second"></td>
+                </tr>
+            
+                <tr>
+                    <td><input type="text" Name="Third Subject Code" id="third"></td>
+                    <td><input type="text" Name="Third Subject Description" id="third"></td>
+                    <td><input type="text" Name="Third Section Code" id="third"></td>
+                    <td><input type="text" Name="Third Day/s" id="third"></td>
+                    <td><input type="text" Name="Third Time" id="third"></td>
+                    <td><input type="text" Name="Third Room" id="third"></td>
+                </tr>
+            
+                <tr>
+                    <td><input type="text" Name="Fourth Subject Code" id="fourth"></td>
+                    <td><input type="text" Name="Fourth Subject Description" id="fourth"></td>
+                    <td><input type="text" Name="Fourth Section Code" id="fourth"></td>
+                    <td><input type="text" Name="Fourth Day/s" id="fourth"></td>
+                    <td><input type="text" Name="Fourth Time" id="fourth"></td>
+                    <td><input type="text" Name="Fourth Room" id="fourth"></td>
+                </tr>
+            
+                <tr>
+                    <td><input type="text" Name="Fifth Subject Code" id="fifth"></td>
+                    <td><input type="text" Name="Fifth Subject Description" id="fifth"></td>
+                    <td><input type="text" Name="Fifth Section Code" id="fifth"></td>
+                    <td><input type="text" Name="Fifth Day/s" id="fifth"></td>
+                    <td><input type="text" Name="Fifth Time" id="fifth"></td>
+                    <td><input type="text" Name="Fifth Room" id="fifth"></td>
+                </tr>
+            
+                <tr>
+                    <td><input type="text" Name="Sixth Subject Code" id="sixth"></td>
+                    <td><input type="text" Name="Sixth Subject Description" id="sixth"></td>
+                    <td><input type="text" Name="Sixth Section Code" id="sixth"></td>
+                    <td><input type="text" Name="Sixth Day/s" id="sixth"></td>
+                    <td><input type="text" Name="Sixth Time" id="sixth"></td>
+                    <td><input type="text" Name="Sixth Room" id="sixth"></td>
+                </tr>
+            
+            </table>
+            </div>
+            <br><br>
+        
+            <div class="button">
+                <button type="submit" onclick="return confirm('Are you sure you want to submit this form?')"> Submit Form </button>
+            </div>
+
+        </div>
+        
+    </div>
+</form>
+</body>
+</html>
